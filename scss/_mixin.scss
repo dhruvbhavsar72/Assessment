@@ -1,0 +1,41 @@
+@mixin MQ($canvas) {
+    @if $canvas == mobile {
+        @media only screen and (min-width: $mobile) {
+            @content;
+        }
+    } @else if $canvas == s {
+        @media only screen and (min-width: $s) {
+            @content;
+        }
+    } @else if $canvas == m {
+        @media only screen and (min-width: $m) {
+            @content;
+        }
+    } @else if $canvas == l {
+        @media only screen and (min-width: $l) {
+            @content;
+        }
+    } @else if $canvas == xl {
+        @media only screen and (min-width: $xl) {
+            @content;
+        }
+    } @else if $canvas == mxl {
+        @media only screen and (min-width: $mxl) {
+            @content;
+        }
+    }@else if $canvas == xxl {
+        @media only screen and (min-width: $xxl) {
+            @content;
+        }
+    }
+    @else if $canvas == maxviewport {
+        @media only screen and (min-width: $maxviewport) {
+            @content;
+        }
+    }
+}
+
+
+@mixin tansit($property: all, $duration: .3s, $ease: ease-in-out){
+	transition: $property $duration $ease;
+}

@@ -1,0 +1,299 @@
+.slide-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .slider_wrapper {
+        display: flex;
+        @include tansit();
+        .slider__item {
+            flex: 0 0 100%;
+            width: 100%;
+            &--overview {
+                position: absolute;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                z-index: 9;
+                top: 0;
+                left: 0;
+                margin: 0 auto;
+                right: 0;
+            }
+            .banner__icon {
+                position: absolute;
+                bottom: -2.083vw;
+                left: 1rem;
+                width: 6.4vw;
+            }
+        }
+    }
+    .slide__dots {
+        position: absolute;
+        bottom: 0.625rem;
+        z-index: 9;
+        button {
+            width: 0.625rem;
+            height: 0.625rem;
+            background-color: $sliderdots;
+            display: inline-block;
+            margin-inline-end: 0.6875rem;
+            border-radius: 50%;
+            padding: 0;
+            border: 0;
+
+            &:last-child {
+                margin-inline-end: 0;
+            }
+            &.activeSlide {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+.projects {
+    padding: 7.031vw 0;
+    .prjects__ttl {
+        color: $sectiontitlecolor;
+    }
+    .project__wrapper-side {
+        margin-bottom: 1.5rem;
+        @include MQ(l) {
+            margin-bottom: 0;
+        }
+        &.side-top {
+            @include MQ(l) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    .project__section {
+        position: relative;
+        cursor: pointer;
+        border: 0.125rem solid transparent;
+        @include tansit();
+
+        &--img {
+            margin-bottom: 0;
+            img {
+                min-height: 13.75rem;
+                max-height: 13.75rem;
+                object-fit: cover;
+                width: 100%;
+                @include MQ(l) {
+                    min-height: unset;
+                    max-height: unset;
+                }
+            }
+        }
+        &--desc {
+            background-color: $white;
+            padding: 0.625rem 0.9375rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: 5px;
+            &-icon {
+                width: 2.9rem;
+            }
+            &-text {
+                width: calc(100% - 2.9rem);
+                padding-left: 1rem;
+                p {
+                    font-size: 0.9375rem;
+                    font-weight: bold;
+                }
+            }
+        }
+        &-hover {
+            background-color: rgba($color: $hovercolor, $alpha: 0.8);
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 0;
+            flex-direction: column;
+            transform: scale(0);
+            @include tansit();
+        }
+        &:hover {
+            border: 2px solid $hovercolor;
+            .project__section-hover {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.brands__partners {
+    padding-bottom: 6.719vw;
+    @include MQ(maxviewport) {
+        padding-bottom: 8.06rem;
+    }
+    &-tablists {
+        gap: 4.375rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid $greycolor;
+        @include MQ(l) {
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+        .tablink {
+            color: $bodycolor;
+            position: relative;
+            &::after {
+                content: "";
+                width: 0.9rem;
+                height: 0.9rem;
+                border-radius: 50%;
+                background-color: $sectiontitlecolor;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                bottom: -1.5rem;
+                display: none;
+                @include MQ(l) {
+                    bottom: -2.5rem;
+                }
+            }
+            &.activeTab {
+                color: $sectiontitlecolor;
+                &:after {
+                    display: block;
+                }
+            }
+        }
+    }
+    .tab__content-tab {
+        overflow: hidden;
+        display: none;
+        &.activeTabContent {
+            display: block;
+        }
+        .brand_slider {
+            @include tansit();
+            .brand__img-items {
+                padding: 0.9375rem;
+                flex: 0 0 33.33%;
+                text-align: center;
+                @include MQ(l) {
+                    flex: 0 0 20%;
+                }
+            }
+        }
+    }
+    .tab__content {
+        position: relative;
+    }
+    .tab__slider-btn {
+        button {
+            background: transparent;
+            border: 0;
+            font-size: 1.8rem;
+            line-height: 1;
+            color: $greycolor;
+            position: absolute;
+            top: auto;
+            bottom: -3rem;
+            @include MQ(mxl) {
+                top: 50%;
+                transform: translateY(-50%);
+                bottom: auto;
+            }
+            &.left-btn {
+                left: 40%;
+                @include MQ(mxl) {
+                    left: -4rem;
+                }
+            }
+            &.right-btn {
+                right: 40%;
+                @include MQ(mxl) {
+                    right: -4rem;
+                }
+            }
+        }
+    }
+}
+
+.contact_frm {
+    background-color: $hovercolor;
+    margin-top: 3rem;
+    padding: 7.448vw 0 3.43rem;
+    @include MQ(l) {
+        background-image: url("../images/footer_curve_bg.jpg");
+        background-size: 100% 100%;
+        background-position: center;
+        padding: 8.93rem 0 3.43rem;
+        margin-top: 0;
+    }
+    @include MQ(maxviewport) {
+        padding: 8.93rem 0 3.43rem;
+    }
+    .inquire__frm {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1.5rem;
+        max-width: 58.75rem;
+        margin: 0 auto;
+        @include MQ(l) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2.2rem;
+        }
+        .form-group {
+            @include MQ(l) {
+                &:nth-child(5),
+                &:nth-child(6) {
+                    grid-column: 1 / span 2;
+                }
+            }
+
+            input[type="submit"] {
+                max-width: 10rem;
+                font-size: 1.25rem;
+                line-height: 1;
+                background-color: $white;
+                margin: 0 auto;
+                text-transform: uppercase;
+                color: $sectiontitlecolor;
+                font-weight: bold;
+            }
+        }
+        .field_info {
+            font-size: 0.8125rem;
+            font-style: italic;
+        }
+    }
+    .rigth-arrow {
+        position: absolute;
+        right: -9.938vw;
+        bottom: -120px;
+        width: 10.833vw;
+        display: none;
+    }
+}
+
+.popup__message{
+    position: fixed;
+    top: 5.5rem;
+    right: -100%;
+    color:$white;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    width: max-content;
+    @include tansit();
+    &--success{
+        background-color: $hovercolor;
+        padding: 1.2rem;
+    }
+    &--fail{
+        background-color: lighten($color: #ff0000, $amount: 20%);
+        padding: 1.2rem;
+    }
+}
