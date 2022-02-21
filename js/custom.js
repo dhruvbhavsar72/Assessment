@@ -59,13 +59,11 @@ function TabsliderChange() {
     const tabslide = document.querySelector('.tab__content-tab.activeTabContent .brand_slider');
     const tabItem = document.querySelectorAll('.tab__content-tab.activeTabContent .brand__img-items');
 
-
     let tabCounter = 0;
 
     tabChange = () => {
         tabslide.style.transform = 'translateX(' + ((-tabWidth * tabCounter) / 5) + 'px)';
     }
-
     nextbtn.addEventListener('click', () => {
         if (tabCounter < tabItem.length) {
             tabCounter++;
