@@ -1,6 +1,6 @@
 .header {
     position: relative;
-    padding: 1rem;
+    padding: 1rem 0rem;
     @include MQ(l){
         padding: 0;
     }
@@ -126,16 +126,17 @@
     }
     .header__nav--linkbtn {
         margin-inline-start: 0;
-        margin-inline-end: 3.1rem;
+        margin-inline-end:3.1rem;
         background-color: $hovercolor;
         color: $white;
-        padding: 0.7rem 1.12rem;
+        padding: 0.7rem 1rem;
         font-weight: bold;
-        font-size: 1.1rem;
+        font-size: 0.95rem;
         line-height: 1;
         @include MQ(m) {
             padding: 0.7rem 1.76rem;
             margin-inline-end: 3.9rem;
+            font-size: 1.1rem;
         }
         @include MQ(l) {
             margin-inline-start: 2.688vw;
@@ -155,7 +156,7 @@
         cursor: pointer;
         position: absolute;
         right: 1.4rem;
-        width: 2rem;
+        width: 1.5rem;
         height: 1.6rem;
         z-index: 1;
         top: 50%;
@@ -163,7 +164,7 @@
         .line {
             display: block;
             background: $hovercolor;
-            width: 2rem;
+            width: 1.5rem;
             height: 3px;
             position: absolute;
             left: 0;

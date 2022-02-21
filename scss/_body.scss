@@ -284,11 +284,11 @@
 
 .popup__message {
     &--success {
-        @include msgpoup();
+        @include msgpoup(darken($color: $hovercolor, $amount: 10%));
         @include tansit();
     }
     &--fail {
-        @include msgpoup(lighten($color: #ff0000, $amount: 20%));
+        @include msgpoup(lighten($color: red, $amount: 20%));
         @include tansit();
     }
 }
