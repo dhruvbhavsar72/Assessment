@@ -73,9 +73,9 @@
         cursor: pointer;
         border: 0.125rem solid transparent;
         @include tansit();
-
         &--img {
             margin-bottom: 0;
+
             img {
                 min-height: 13.75rem;
                 max-height: 13.75rem;
@@ -94,6 +94,7 @@
             bottom: 0;
             left: 0;
             margin: 5px;
+            max-width: 22.25rem;
             &-icon {
                 width: 2.9rem;
             }
@@ -118,6 +119,8 @@
             left: 0;
             flex-direction: column;
             transform: scale(0);
+            border: 5px solid $white;
+
             @include tansit();
         }
         &:hover {
@@ -227,7 +230,7 @@
     margin-top: 3rem;
     padding: 7.448vw 0 3.43rem;
     @include MQ(l) {
-        background-image: url("../images/footer_curve_bg.jpg");
+        background-image: url("#{$imgpath}/footer_curve_bg.jpg");
         background-size: 100% 100%;
         background-position: center;
         padding: 8.93rem 0 3.43rem;
@@ -279,21 +282,13 @@
     }
 }
 
-.popup__message{
-    position: fixed;
-    top: 5.5rem;
-    right: -100%;
-    color:$white;
-    border-radius: 0.7rem;
-    overflow: hidden;
-    width: max-content;
-    @include tansit();
-    &--success{
-        background-color: $hovercolor;
-        padding: 1.2rem;
+.popup__message {
+    &--success {
+        @include msgpoup();
+        @include tansit();
     }
-    &--fail{
-        background-color: lighten($color: #ff0000, $amount: 20%);
-        padding: 1.2rem;
+    &--fail {
+        @include msgpoup(lighten($color: #ff0000, $amount: 20%));
+        @include tansit();
     }
 }

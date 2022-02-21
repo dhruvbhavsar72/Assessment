@@ -23,19 +23,29 @@
         @media only screen and (min-width: $mxl) {
             @content;
         }
-    }@else if $canvas == xxl {
+    } @else if $canvas == xxl {
         @media only screen and (min-width: $xxl) {
             @content;
         }
-    }
-    @else if $canvas == maxviewport {
+    } @else if $canvas == maxviewport {
         @media only screen and (min-width: $maxviewport) {
             @content;
         }
     }
 }
 
+@mixin tansit($property: all, $duration: 0.3s, $ease: ease-in-out) {
+    transition: $property $duration $ease;
+}
 
-@mixin tansit($property: all, $duration: .3s, $ease: ease-in-out){
-	transition: $property $duration $ease;
+@mixin msgpoup($bgcolor: $hovercolor) {
+    padding: 1.2rem;
+    position: fixed;
+    top: 5.5rem;
+    right: -100%;
+    color: $white;
+    border-radius: 0.7rem;
+    overflow: hidden;
+    width: max-content;
+    background-color: $bgcolor;
 }
