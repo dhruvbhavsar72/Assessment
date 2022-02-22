@@ -1,6 +1,6 @@
 let slide = document.querySelector('.slider_wrapper');
 const slideItem = document.querySelectorAll('.slider__item');
-const sliderWidth = document.querySelector('.slide-container').clientWidth;
+var sliderWidth = document.querySelector('.slide-container').clientWidth;
 const slidedots = document.querySelector('.slide__dots');
 
 let timeout;
@@ -11,12 +11,20 @@ let counterText = document.getElementById('counterText');
 let inquireForm = document.querySelector('.inquire__frm');
 let confirmpassword = document.getElementsByName('cpwd')[0];
 
-const tabWidth = document.querySelector('.tab__content').clientWidth;
+var tabWidth = document.querySelector('.tab__content').clientWidth;
 const prevbtn = document.querySelector('.slideprev');
 const nextbtn = document.querySelector('.slidenext');
 
 
 var slideCounter = 0;
+
+
+
+$(window).resize(() => {
+
+    sliderWidth = document.querySelector('.slide-container').clientWidth;
+
+})
 
 //onclick
 slideChange = () => {
@@ -58,28 +66,33 @@ tablink.forEach((i) => {
 function TabsliderChange() {
     const tabslide = document.querySelector('.tab__content-tab.activeTabContent .brand_slider');
     const tabItem = document.querySelectorAll('.tab__content-tab.activeTabContent .brand__img-items');
-
+    $(window).resize(() => {
+        tabWidth = document.querySelector('.tab__content').clientWidth
+    
+    })
     let tabCounter = 0;
 
     tabChange = () => {
         tabslide.style.transform = 'translateX(' + ((-tabWidth * tabCounter) / 5) + 'px)';
     }
     nextbtn.addEventListener('click', () => {
-        if (tabCounter < tabItem.length) {
-            tabCounter++;
+        if (tabCounter === tabItem.length - 1) {
+            tabCounter = 0;
         }
         else {
-            tabCounter = 0;
+            
+            tabCounter++;
         }
         tabChange();
     });
 
     prevbtn.addEventListener('click', () => {
-        if (tabCounter > 0) {
-            tabCounter--;
+        if (tabCounter === 0) {
+            
+            tabCounter = tabItem.length - 1;
         }
         else {
-            tabCounter = tabItem.length;
+            tabCounter--;
         }
 
         tabChange();
