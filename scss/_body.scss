@@ -8,6 +8,14 @@
         .slider__item {
             flex: 0 0 100%;
             width: 100%;
+            img[role='img']{
+                height:250px;
+                object-fit: cover;
+                width: 100%;
+                @include MQ(s){
+                    height: auto;
+                }
+            }
             &--overview {
                 position: absolute;
                 height: 100%;
@@ -35,7 +43,7 @@
         button {
             width: 0.625rem;
             height: 0.625rem;
-            background-color: $sliderdots;
+            background-color: var(--color-lightgrey);
             display: inline-block;
             margin-inline-end: 0.6875rem;
             border-radius: 50%;
@@ -46,7 +54,7 @@
                 margin-inline-end: 0;
             }
             &.activeSlide {
-                background-color: $white;
+                background-color: var(--color-white);
             }
         }
     }
@@ -55,7 +63,7 @@
 .projects {
     padding: 7.031vw 0;
     .prjects__ttl {
-        color: $sectiontitlecolor;
+        color: var(--color-lightcofee);
     }
     .project__wrapper-side {
         margin-bottom: 1.5rem;
@@ -88,7 +96,7 @@
             }
         }
         &--desc {
-            background-color: $white;
+            background-color: var(--color-white);
             padding: 0.625rem 0.9375rem;
             position: absolute;
             bottom: 0;
@@ -119,12 +127,12 @@
             left: 0;
             flex-direction: column;
             transform: scale(0);
-            border: 5px solid $white;
+            border: 5px solid var(--color-white);
 
             @include tansit();
         }
         &:hover {
-            border: 2px solid $hovercolor;
+            border: 2px solid var(--color-green);
             .project__section-hover {
                 transform: scale(1);
             }
@@ -141,7 +149,7 @@
         gap: 4.375rem;
         padding-bottom: 1rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid $greycolor;
+        border-bottom: 1px solid var(--color-grey);
         @include MQ(l) {
             padding-bottom: 2rem;
             margin-bottom: 2rem;
@@ -154,7 +162,7 @@
                 width: 0.9rem;
                 height: 0.9rem;
                 border-radius: 50%;
-                background-color: $sectiontitlecolor;
+                background-color: var(--color-lightcofee);
                 position: absolute;
                 left: 0;
                 right: 0;
@@ -166,7 +174,7 @@
                 }
             }
             &.activeTab {
-                color: $sectiontitlecolor;
+                color: var(--color-lightcofee);
                 &:after {
                     display: block;
                 }
@@ -200,7 +208,7 @@
             border: 0;
             font-size: 1.8rem;
             line-height: 1;
-            color: $greycolor;
+            color: var(--color-grey);
             position: absolute;
             top: auto;
             bottom: -3rem;
@@ -226,7 +234,7 @@
 }
 
 .contact_frm {
-    background-color: $hovercolor;
+    background-color: var(--color-green);
     margin-top: 3rem;
     padding: 7.448vw 0 3.43rem;
     @include MQ(l) {
@@ -261,10 +269,10 @@
                 max-width: 10rem;
                 font-size: 1.25rem;
                 line-height: 1;
-                background-color: $white;
+                background-color: var(--color-white);
                 margin: 0 auto;
                 text-transform: uppercase;
-                color: $sectiontitlecolor;
+                color: var(--color-lightcofee);
                 font-weight: bold;
             }
         }
@@ -286,9 +294,15 @@
     &--success {
         @include msgpoup(darken($color: $hovercolor, $amount: 10%));
         @include tansit();
+        &.msgpopupActive{
+            right: 0;
+        }
     }
     &--fail {
         @include msgpoup(lighten($color: red, $amount: 20%));
         @include tansit();
+        &.msgpopupActive{
+            right: 0;
+        }
     }
 }

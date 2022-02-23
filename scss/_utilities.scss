@@ -203,3 +203,18 @@ textarea.form-control {
         top: 0;
     }
 }
+
+
+html{
+    &.dark{
+        filter: invert(1);
+        background-color: $black;
+        img{
+            filter: invert(1);
+        }
+    }
+    &.light{
+        filter: invert(0);
+        background-color: $white;
+    }
+}

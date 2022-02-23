@@ -16,9 +16,27 @@ $m:768px;
 $s:568px;
 $mobile:280px;
 $maxviewport:1920px;
-
 $inner-wrapper: 1200px; 
 
 $font-path: "../fonts";
 $imgpath: "../images";
 $font: "SourceSansPro", sans-serif;
+
+$abc:(
+    'bodycolor':$bodycolor,
+    'bodybgcolor':$bodybgcolor,
+    'black':$black,
+    'white':$white,
+    'green':$hovercolor,
+    'lightgrey':$sliderdots,
+    'lightcofee':$sectiontitlecolor,
+    'grey':$greycolor,
+    'offwhite':$offwhite,
+    
+);
+
+:root{
+    @each $var,$value in $abc {
+        --color-#{$var}:#{$value};
+    }
+}
