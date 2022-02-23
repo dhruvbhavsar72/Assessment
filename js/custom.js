@@ -57,10 +57,10 @@ TabsliderChange = () => {
     let tabCounter = 0;
     let mql = window.matchMedia('(min-width: 992px)')
     tabChange = () => {
-        tabslide.css('transform', `translateX(${(-tabWidth * tabCounter) / (mql.matches ? 5 : 3)}px`)
+        tabslide.css('transform', `translateX(${(-tabWidth * tabCounter) / (mql.matches ? tabItem.length : tabItem.length - 2)}px`)
     }
     $('.slidenext').on('click', () => {
-        if (tabCounter === tabItem.length - 1) {
+        if (tabCounter === tabItem.length) {
             tabCounter = 0;
         }
         else {
@@ -73,7 +73,7 @@ TabsliderChange = () => {
     $('.slideprev').on('click', () => {
         if (tabCounter === 0) {
 
-            tabCounter = tabItem.length - 1;
+            tabCounter = tabItem.length;
         }
         else {
             tabCounter--;
@@ -102,6 +102,9 @@ StrengthChecker = () => {
         } else {
             $('.popup__message--fail p').text(`You must enter with these character ~!@#$%^&*_ with minimum 8 character`);
             $('.popup__message--fail').addClass('msgpopupActive');
+            setTimeout(() => {
+                $('.popup__message--fail').removeClass('msgpopupActive');
+            }, 3000);
         }
     }, 100);
 
@@ -119,17 +122,24 @@ $('[name="cpwd"]').on("input", () => {
             $('.popup__message--fail p').text(`Password Matches not`);
             $('.popup__message--fail').addClass('msgpopupActive');
             $('input[type="submit"]').attr('disabled', true);
+            setTimeout(() => {
+                $('.popup__message--fail').removeClass('msgpopupActive');
+            }, 3000);
+            
         }
     }
 });
 
 
 
-$('[name="email"]').on("input", () => {
-    let emailvalue = this.value.toLowerCase();
+$('[name="email"]').on("input", function() {
+    let emailvalue = $(this).val().toLowerCase();
     if (!emailvalue.match(/(\<|^)[\w\d._%+-]+@(?:[\w\d-]+\.)+(\w{2,})(\>|$)/i)) {
         $('.popup__message--fail p').text(`email address not valid`);
         $('.popup__message--fail').addClass('msgpopupActive');
+        setTimeout(() => {
+            $('.popup__message--fail').removeClass('msgpopupActive');
+        }, 3000);
     }
     else {
         $('.popup__message--fail').removeClass('msgpopupActive');
